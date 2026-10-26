@@ -1,1 +1,246 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee & Tea Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f8f4ed;
+  --coffee: #654735;
+  --dark: #30251f;
+  --muted: #8c7b6c;
+  --sage: #78846b;
+  --white: #fffdf9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+}
+header {
+  padding: 24px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e8ded1;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+.logo span { color: var(--coffee); }
+nav { display: flex; gap: 25px; }
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 13px;
+}
+.hero {
+  padding: 85px 7% 75px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 45px;
+  align-items: center;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--sage);
+  font-size: 11px;
+  font-weight: 700;
+}
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+}
+h1 {
+  font-size: clamp(48px, 6vw, 78px);
+  line-height: 1.08;
+  margin: 20px 0;
+}
+h1 em { color: var(--coffee); }
+.hero p {
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 440px;
+  font-size: 15px;
+}
+.hero img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 180px 180px 8px 8px;
+}
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 25px;
+  border-radius: 3px;
+  background: var(--coffee);
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+.button:hover { background: var(--dark); transform: translateY(-2px); }
+section { padding: 65px 7%; }
+.section-heading { text-align: center; margin-bottom: 38px; }
+.section-heading h2 { font-size: 42px; margin: 12px 0; }
+.section-heading p { color: var(--muted); font-size: 14px; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.card {
+  background: var(--white);
+  padding: 14px 14px 24px;
+  border: 1px solid #eee5d9;
+  transition: .3s;
+}
+.card:hover { transform: translateY(-5px); }
+.card img { width: 100%; height: 230px; object-fit: cover; }
+.card h3 { font-size: 25px; margin: 20px 8px 8px; }
+.card p { margin: 0 8px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.tag {
+  display: inline-block;
+  margin: 15px 8px 0;
+  color: var(--sage);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.tips {
+  background: #eee7db;
+  text-align: center;
+}
+.tips h2 { font-size: 40px; }
+.tip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+.tip { padding: 10px; }
+.tip .icon { font-size: 30px; }
+.tip h3 { font-size: 23px; }
+.tip p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+footer {
+  padding: 35px 7%;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+@media(max-width: 700px) {
+  header { padding: 20px 5%; }
+  nav { gap: 12px; }
+  nav a { font-size: 11px; }
+  .hero { grid-template-columns: 1fr; padding: 55px 6%; }
+  .hero img { height: 340px; }
+  section { padding: 50px 6%; }
+  .cards, .tip-grid { grid-template-columns: 1fr; }
+  .card img { height: 270px; }
+  .section-heading h2 { font-size: 34px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Coffee <span>&</span> Tea</div>
+  <nav>
+    <a href="#guide">The Guide</a>
+    <a href="#coffee">Coffee</a>
+    <a href="#tea">Tea</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Your daily ritual</div>
+      <h1>A little cup<br>of <em>happiness.</em></h1>
+      <p>
+        Discover the beautiful world of coffee and tea.
+        Explore flavors, learn brewing basics, and find
+        your perfect cup for every moment.
+      </p>
+      <a class="button" href="#guide">EXPLORE THE GUIDE ↗</a>
+    </div>
+    <img
+      src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85"
+      alt="Freshly brewed coffee on a warm morning">
+  </div>
+
+  <section id="guide">
+    <div class="section-heading">
+      <div class="eyebrow">Find your favorite</div>
+      <h2>Two worlds. Endless flavors.</h2>
+      <p>From bold morning coffee to a calming evening tea.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card" id="coffee">
+        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" alt="Fresh coffee">
+        <span class="tag">01 / Coffee</span>
+        <h3>The Art of Coffee</h3>
+        <p>Explore espresso, cappuccino, latte, and pour-over. Learn how brewing methods bring out different flavors.</p>
+      </article>
+
+      <article class="card" id="tea">
+        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80" alt="Tea in a glass">
+        <span class="tag">02 / Tea</span>
+        <h3>The World of Tea</h3>
+        <p>Discover green, black, white, and herbal teas, each with its own aroma, character, and brewing ritual.</p>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80" alt="Matcha drink">
+        <span class="tag">03 / Slow living</span>
+        <h3>Mindful Moments</h3>
+        <p>Turn an everyday drink into a small ritual. Choose your cup, slow down, and enjoy the moment.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="tips">
+    <div class="eyebrow">A better brew starts here</div>
+    <h2>Little tips, better flavor.</h2>
+    <div class="tip-grid">
+      <div class="tip">
+        <div class="icon">☕</div>
+        <h3>Fresh is best</h3>
+        <p>Use fresh coffee beans and store them in an airtight container away from heat and light.</p>
+      </div>
+      <div class="tip">
+        <div class="icon">♨️</div>
+        <h3>Mind the water</h3>
+        <p>Use fresh water. Green tea often tastes better with cooler water than boiling water.</p>
+      </div>
+      <div class="tip">
+        <div class="icon">✧</div>
+        <h3>Make it yours</h3>
+        <p>Experiment with brewing time, milk, and flavors to discover what you enjoy most.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="logo">Coffee <span>&</span> Tea</div>
+  <p>A guide to better brews and slower moments.</p>
+  © 2026 Coffee & Tea Guide
+</footer>
+
+</body>
+</html>
+
