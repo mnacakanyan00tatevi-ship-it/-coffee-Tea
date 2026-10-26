@@ -3,244 +3,595 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore coffee varieties, tea types, brewing guides and delicious drink recipes.">
 <title>Coffee & Tea Guide</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
 :root {
-  --cream: #f8f4ed;
-  --coffee: #654735;
-  --dark: #30251f;
-  --muted: #8c7b6c;
-  --sage: #78846b;
-  --white: #fffdf9;
+  --bg: #f8f4ed;
+  --paper: #fffdf9;
+  --ink: #30251f;
+  --brown: #72513d;
+  --gold: #b69a72;
+  --muted: #88796d;
+  --line: #e8ded1;
+  --green: #65765a;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body {
   margin: 0;
-  background: var(--cream);
-  color: var(--dark);
+  background: var(--bg);
+  color: var(--ink);
   font-family: 'DM Sans', sans-serif;
 }
+a { color: inherit; }
+.topline {
+  padding: 9px 16px;
+  text-align: center;
+  background: var(--brown);
+  color: white;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 header {
-  padding: 24px 7%;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255,253,249,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 17px 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #e8ded1;
+  justify-content: space-between;
+  gap: 20px;
 }
-.logo {
+.brand {
   font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  letter-spacing: 1px;
+  font-size: 23px;
+  white-space: nowrap;
 }
-.logo span { color: var(--coffee); }
-nav { display: flex; gap: 25px; }
+.brand span { color: var(--gold); }
+nav { display: flex; gap: 22px; align-items: center; }
 nav a {
   text-decoration: none;
-  color: var(--dark);
-  font-size: 13px;
+  font-size: 12px;
+  color: var(--muted);
+  transition: color .2s;
 }
+nav a:hover { color: var(--brown); }
 .hero {
-  padding: 85px 7% 75px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 75px 24px;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 45px;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
   align-items: center;
 }
 .eyebrow {
+  color: var(--green);
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: var(--sage);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
 }
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
 }
 h1 {
-  font-size: clamp(48px, 6vw, 78px);
+  font-size: clamp(45px, 6vw, 76px);
   line-height: 1.08;
   margin: 20px 0;
 }
-h1 em { color: var(--coffee); }
+h1 em { color: var(--brown); }
 .hero p {
-  color: var(--muted);
+  max-width: 470px;
   line-height: 1.9;
-  max-width: 440px;
-  font-size: 15px;
+  font-size: 14px;
+  color: var(--muted);
 }
-.hero img {
+.hero-image {
+  min-height: 400px;
+  background: #e8ded1;
+  overflow: hidden;
+  border-radius: 180px 180px 6px 6px;
+}
+.hero-image img {
   width: 100%;
-  height: 440px;
+  height: 430px;
   object-fit: cover;
-  border-radius: 180px 180px 8px 8px;
+  display: block;
 }
 .button {
   display: inline-block;
-  margin-top: 20px;
-  padding: 15px 25px;
-  border-radius: 3px;
-  background: var(--coffee);
+  background: var(--brown);
   color: white;
   text-decoration: none;
+  border: 1px solid var(--brown);
+  padding: 14px 22px;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  transition: .25s;
+}
+.button:hover { background: var(--ink); }
+.button.light { background: transparent; color: var(--brown); }
+.button.light:hover { background: var(--brown); color: white; }
+main section { padding: 65px 24px; }
+.section-inner { max-width: 1150px; margin: auto; }
+.section-title { text-align: center; margin-bottom: 35px; }
+.section-title h2 { font-size: clamp(32px, 4vw, 45px); margin: 12px 0; }
+.section-title p { color: var(--muted); font-size: 13px; line-height: 1.8; }
+.category-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 28px 0;
+}
+.category-menu button {
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 11px 16px;
+  color: var(--brown);
+  font: inherit;
   font-size: 12px;
-  letter-spacing: 1px;
-  transition: .3s;
+  cursor: pointer;
 }
-.button:hover { background: var(--dark); transform: translateY(-2px); }
-section { padding: 65px 7%; }
-.section-heading { text-align: center; margin-bottom: 38px; }
-.section-heading h2 { font-size: 42px; margin: 12px 0; }
-.section-heading p { color: var(--muted); font-size: 14px; }
-.cards {
+.category-menu button.active,
+.category-menu button:hover {
+  background: var(--brown);
+  color: white;
+  border-color: var(--brown);
+}
+.search-wrap { max-width: 520px; margin: 0 auto 30px; }
+.search-wrap input {
+  width: 100%;
+  padding: 15px 17px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  outline-color: var(--gold);
+  font: inherit;
+  font-size: 13px;
+}
+.drink-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
-.card {
-  background: var(--white);
-  padding: 14px 14px 24px;
-  border: 1px solid #eee5d9;
-  transition: .3s;
+.drink-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform .25s, box-shadow .25s;
 }
-.card:hover { transform: translateY(-5px); }
-.card img { width: 100%; height: 230px; object-fit: cover; }
-.card h3 { font-size: 25px; margin: 20px 8px 8px; }
-.card p { margin: 0 8px; color: var(--muted); font-size: 13px; line-height: 1.8; }
-.tag {
-  display: inline-block;
-  margin: 15px 8px 0;
-  color: var(--sage);
+.drink-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px #72513d12;
+}
+.drink-number {
+  color: var(--gold);
   font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  letter-spacing: 2px;
 }
-.tips {
-  background: #eee7db;
-  text-align: center;
+.drink-card h3 { font-size: 27px; margin: 12px 0 8px; }
+.drink-card > p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0 0 16px;
 }
-.tips h2 { font-size: 40px; }
-.tip-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 40px;
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.chip {
+  background: #f0e9df;
+  color: var(--brown);
+  padding: 6px 9px;
+  font-size: 10px;
 }
-.tip { padding: 10px; }
-.tip .icon { font-size: 30px; }
-.tip h3 { font-size: 23px; }
-.tip p { font-size: 13px; color: var(--muted); line-height: 1.8; }
-footer {
-  padding: 35px 7%;
-  text-align: center;
+.drink-card .button { margin-top: auto; }
+.details {
+  display: none;
+  width: 100%;
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+  padding-top: 15px;
+}
+.details.open { display: block; }
+.details h4 { font-size: 18px; margin: 15px 0 7px; }
+.details p, .details li {
   color: var(--muted);
   font-size: 12px;
+  line-height: 1.8;
 }
-@media(max-width: 700px) {
-  header { padding: 20px 5%; }
+.details ul { padding-left: 18px; }
+.no-results { text-align: center; color: var(--muted); padding: 30px; }
+.band {
+  background: #eee6da;
+}
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+.info {
+  padding: 25px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.info .symbol { font-size: 25px; }
+.info h3 { font-size: 23px; margin: 15px 0 8px; }
+.info p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+.recipe-list {
+  max-width: 760px;
+  margin: auto;
+}
+.recipe-row {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 25px;
+}
+.recipe-row h3 { margin: 0; font-size: 22px; }
+.recipe-row p { margin: 5px 0 0; font-size: 12px; color: var(--muted); line-height: 1.8; }
+footer {
+  padding: 40px 24px;
+  text-align: center;
+  background: #30251f;
+  color: #eee4d7;
+}
+footer .brand { font-size: 25px; }
+footer p { font-size: 12px; color: #c6b8a8; line-height: 1.8; }
+footer a { color: #e0c9a7; }
+@media(max-width: 850px) {
+  .hero { gap: 25px; }
+  .drink-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   nav { gap: 12px; }
   nav a { font-size: 11px; }
-  .hero { grid-template-columns: 1fr; padding: 55px 6%; }
-  .hero img { height: 340px; }
-  section { padding: 50px 6%; }
-  .cards, .tip-grid { grid-template-columns: 1fr; }
-  .card img { height: 270px; }
-  .section-heading h2 { font-size: 34px; }
+}
+@media(max-width: 600px) {
+  .nav { padding: 14px 16px; flex-wrap: wrap; }
+  .brand { font-size: 21px; }
+  nav { width: 100%; overflow-x: auto; padding: 5px 0; }
+  nav a { white-space: nowrap; }
+  .hero { grid-template-columns: 1fr; padding: 48px 20px; }
+  .hero-image { min-height: 280px; border-radius: 120px 120px 5px 5px; }
+  .hero-image img { height: 300px; }
+  main section { padding: 48px 18px; }
+  .drink-grid, .info-grid { grid-template-columns: 1fr; }
+  .drink-card { padding: 22px; }
+  .recipe-row { grid-template-columns: 1fr; gap: 5px; }
 }
 </style>
 </head>
+
 <body>
+<div class="topline">A guide to better brews & slower moments</div>
 
 <header>
-  <div class="logo">Coffee <span>&</span> Tea</div>
-  <nav>
-    <a href="#guide">The Guide</a>
-    <a href="#coffee">Coffee</a>
-    <a href="#tea">Tea</a>
-  </nav>
+  <div class="nav">
+    <a href="#home" class="brand" style="text-decoration:none">Coffee <span>&</span> Tea</a>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#coffee">Coffee</a>
+      <a href="#tea">Tea</a>
+      <a href="#brewing">Brewing Guide</a>
+      <a href="#recipes">Recipes</a>
+      <a href="#tips">Tips</a>
+    </nav>
+  </div>
 </header>
 
 <main>
-  <div class="hero">
-    <div>
-      <div class="eyebrow">Your daily ritual</div>
-      <h1>A little cup<br>of <em>happiness.</em></h1>
-      <p>
-        Discover the beautiful world of coffee and tea.
-        Explore flavors, learn brewing basics, and find
-        your perfect cup for every moment.
-      </p>
-      <a class="button" href="#guide">EXPLORE THE GUIDE ↗</a>
-    </div>
-    <img
-      src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85"
-      alt="Freshly brewed coffee on a warm morning">
+<section class="hero" id="home">
+  <div>
+    <div class="eyebrow">Discover · Brew · Enjoy</div>
+    <h1>Your guide to<br><em>coffee & tea.</em></h1>
+    <p>
+      Explore the world's favorite drinks. Discover different varieties,
+      understand their flavors, learn brewing techniques, and make
+      every cup a little more special.
+    </p>
+    <a class="button" href="#coffee">EXPLORE THE GUIDE ↗</a>
   </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1100&q=85" alt="Coffee and a cozy morning ritual">
+  </div>
+</section>
 
-  <section id="guide">
-    <div class="section-heading">
-      <div class="eyebrow">Find your favorite</div>
-      <h2>Two worlds. Endless flavors.</h2>
-      <p>From bold morning coffee to a calming evening tea.</p>
+<section id="coffee">
+  <div class="section-inner">
+    <div class="section-title">
+      <div class="eyebrow">Chapter 01</div>
+      <h2>The Coffee Guide</h2>
+      <p>From a powerful espresso to a smooth, milky latte.<br>Find your perfect coffee and discover how it is made.</p>
     </div>
 
-    <div class="cards">
-      <article class="card" id="coffee">
-        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" alt="Fresh coffee">
-        <span class="tag">01 / Coffee</span>
-        <h3>The Art of Coffee</h3>
-        <p>Explore espresso, cappuccino, latte, and pour-over. Learn how brewing methods bring out different flavors.</p>
-      </article>
+    <div class="category-menu" id="coffeeFilters">
+      <button class="active" data-filter="all">All Coffee</button>
+      <button data-filter="espresso">Espresso Based</button>
+      <button data-filter="milk">Milk Coffee</button>
+      <button data-filter="cold">Cold Coffee</button>
+      <button data-filter="brewed">Brewed Coffee</button>
+    </div>
+    <div class="search-wrap">
+      <input id="coffeeSearch" type="search" placeholder="Search coffee... e.g. latte, mocha" aria-label="Search coffee">
+    </div>
+    <div class="drink-grid" id="coffeeGrid"></div>
+  </div>
+</section>
 
-      <article class="card" id="tea">
-        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80" alt="Tea in a glass">
-        <span class="tag">02 / Tea</span>
-        <h3>The World of Tea</h3>
-        <p>Discover green, black, white, and herbal teas, each with its own aroma, character, and brewing ritual.</p>
-      </article>
+<section id="tea" class="band">
+  <div class="section-inner">
+    <div class="section-title">
+      <div class="eyebrow">Chapter 02</div>
+      <h2>The Tea Guide</h2>
+      <p>Discover delicate white teas, refreshing green teas,<br>rich black teas, herbal infusions, and matcha.</p>
+    </div>
+    <div class="category-menu" id="teaFilters">
+      <button class="active" data-filter="all">All Tea</button>
+      <button data-filter="black">Black Tea</button>
+      <button data-filter="green">Green Tea</button>
+      <button data-filter="special">Specialty Tea</button>
+      <button data-filter="herbal">Herbal Infusions</button>
+    </div>
+    <div class="search-wrap">
+      <input id="teaSearch" type="search" placeholder="Search tea... e.g. matcha, Earl Grey" aria-label="Search tea">
+    </div>
+    <div class="drink-grid" id="teaGrid"></div>
+  </div>
+</section>
 
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80" alt="Matcha drink">
-        <span class="tag">03 / Slow living</span>
-        <h3>Mindful Moments</h3>
-        <p>Turn an everyday drink into a small ritual. Choose your cup, slow down, and enjoy the moment.</p>
+<section id="brewing">
+  <div class="section-inner">
+    <div class="section-title">
+      <div class="eyebrow">Chapter 03</div>
+      <h2>The Brewing Guide</h2>
+      <p>Small details make a difference. Start with these basic guidelines.</p>
+    </div>
+    <div class="info-grid">
+      <article class="info">
+        <div class="symbol">☕</div>
+        <h3>Espresso</h3>
+        <p><strong>Starting point:</strong> About 18 g of ground coffee for a double espresso. A typical starting yield is around 36 g in 25–30 seconds. Adjust to your beans and machine.</p>
+      </article>
+      <article class="info">
+        <div class="symbol">♨</div>
+        <h3>Pour-Over</h3>
+        <p><strong>Starting point:</strong> 15 g coffee to 250 g water. Try water around 92–96°C and a total brew time of about 2.5–4 minutes.</p>
+      </article>
+      <article class="info">
+        <div class="symbol">🍃</div>
+        <h3>Loose-Leaf Tea</h3>
+        <p><strong>Starting point:</strong> About 2 g tea per 200 ml water. Adjust the temperature and steeping time to the specific tea variety.</p>
       </article>
     </div>
-  </section>
-
-  <section class="tips">
-    <div class="eyebrow">A better brew starts here</div>
-    <h2>Little tips, better flavor.</h2>
-    <div class="tip-grid">
-      <div class="tip">
-        <div class="icon">☕</div>
-        <h3>Fresh is best</h3>
-        <p>Use fresh coffee beans and store them in an airtight container away from heat and light.</p>
+    <div class="recipe-list" style="margin-top:35px">
+      <div class="recipe-row">
+        <h3>Black Tea</h3>
+        <p>95–100°C · Usually 3–5 minutes. Use boiling water and adjust steeping time to taste.</p>
       </div>
-      <div class="tip">
-        <div class="icon">♨️</div>
-        <h3>Mind the water</h3>
-        <p>Use fresh water. Green tea often tastes better with cooler water than boiling water.</p>
+      <div class="recipe-row">
+        <h3>Green Tea</h3>
+        <p>Usually 70–85°C · About 1–3 minutes. Cooler water can help prevent excessive bitterness.</p>
       </div>
-      <div class="tip">
-        <div class="icon">✧</div>
-        <h3>Make it yours</h3>
-        <p>Experiment with brewing time, milk, and flavors to discover what you enjoy most.</p>
+      <div class="recipe-row">
+        <h3>White Tea</h3>
+        <p>Usually 75–85°C · About 2–5 minutes. Delicate teas may benefit from gentler water temperatures.</p>
+      </div>
+      <div class="recipe-row">
+        <h3>Oolong Tea</h3>
+        <p>About 85–95°C · Start with 2–4 minutes. Rolled and roasted varieties may need different methods.</p>
+      </div>
+      <div class="recipe-row">
+        <h3>Herbal Infusions</h3>
+        <p>Usually 95–100°C · About 5–10 minutes. Follow the instructions for the specific herbs and ingredients.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<section id="recipes" class="band">
+  <div class="section-inner">
+    <div class="section-title">
+      <div class="eyebrow">Chapter 04</div>
+      <h2>Easy Drink Recipes</h2>
+      <p>Simple favorites to prepare at home.</p>
+    </div>
+    <div class="info-grid">
+      <article class="info">
+        <div class="symbol">🥛</div>
+        <h3>Vanilla Latte</h3>
+        <p><strong>Ingredients:</strong> 1 espresso, 180–220 ml milk, vanilla syrup to taste.</p>
+        <p><strong>Method:</strong> Brew espresso, steam the milk, add vanilla, and pour the milk into the coffee.</p>
+      </article>
+      <article class="info">
+        <div class="symbol">🧊</div>
+        <h3>Iced Americano</h3>
+        <p><strong>Ingredients:</strong> 1–2 espresso shots, cold water, ice.</p>
+        <p><strong>Method:</strong> Fill a glass with ice, add water, and pour the espresso over it. Adjust strength to taste.</p>
+      </article>
+      <article class="info">
+        <div class="symbol">🍵</div>
+        <h3>Matcha Latte</h3>
+        <p><strong>Ingredients:</strong> 1–2 g matcha, 60 ml warm water, 180 ml milk.</p>
+        <p><strong>Method:</strong> Sift and whisk matcha with water until smooth. Add steamed or cold milk.</p>
+      </article>
+      <article class="info">
+        <div class="symbol">🍋</div>
+        <h3>Lemon Iced Tea</h3>
+        <p><strong>Ingredients:</strong> 250 ml brewed black tea, lemon, ice, optional sweetener.</p>
+        <p><strong>Method:</strong> Brew and cool the tea. Pour over ice, add lemon, and sweeten to taste.</p>
+      </article>
+      <article class="info">
+        <div class="symbol">🍫</div>
+        <h3>Mocha</h3>
+        <p><strong>Ingredients:</strong> 1 espresso, 1–2 teaspoons cocoa or chocolate sauce, 180 ml milk.</p>
+        <p><strong>Method:</strong> Mix chocolate into the hot espresso, then add steamed milk.</p>
+      </article>
+      <article class="info">
+        <div class="symbol">🌿</div>
+        <h3>Mint Herbal Tea</h3>
+        <p><strong>Ingredients:</strong> Fresh mint leaves and 250 ml hot water.</p>
+        <p><strong>Method:</strong> Pour hot water over mint and steep for 5–7 minutes. Add lemon if desired.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="tips">
+  <div class="section-inner">
+    <div class="section-title">
+      <div class="eyebrow">Chapter 05</div>
+      <h2>Little Tips, Better Flavor</h2>
+    </div>
+    <div class="info-grid">
+      <article class="info">
+        <h3>01. Fresh Ingredients</h3>
+        <p>Store coffee in an airtight container away from heat, moisture, and sunlight. Buy tea from a reliable source and keep it dry.</p>
+      </article>
+      <article class="info">
+        <h3>02. Water Matters</h3>
+        <p>Use fresh, good-tasting water. Water quality and temperature can change the flavor of both coffee and tea.</p>
+      </article>
+      <article class="info">
+        <h3>03. Experiment</h3>
+        <p>Change one variable at a time: grind size, water temperature, steeping time, or the amount of coffee or tea.</p>
+      </article>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
-  <div class="logo">Coffee <span>&</span> Tea</div>
-  <p>A guide to better brews and slower moments.</p>
-  © 2026 Coffee & Tea Guide
+  <div class="brand">Coffee <span style="color:#c8ab80">&</span> Tea</div>
+  <p>Explore flavors. Discover rituals. Enjoy every cup.</p>
+  <p><a href="#home">Back to top ↑</a></p>
+  <p>© 2026 Coffee & Tea Guide</p>
 </footer>
 
+<script>
+const coffee = [
+  {name:"Espresso",cat:"espresso",desc:"A concentrated coffee with an intense aroma and a rich crema.",tags:["Strong","30 ml"],ingredients:"Finely ground coffee and hot water.",method:"Extract under pressure using an espresso machine. A common starting recipe uses 18 g coffee and about 36 g espresso.",taste:"Intense, rich, balanced or pleasantly bitter depending on the beans."},
+  {name:"Ristretto",cat:"espresso",desc:"A shorter espresso with a concentrated flavor.",tags:["Short","Intense"],ingredients:"Espresso-ground coffee and water.",method:"Prepare an espresso with a smaller liquid yield. Adjust extraction to avoid an overly sour or harsh result.",taste:"Concentrated, aromatic, often rounded and sweet."},
+  {name:"Lungo",cat:"espresso",desc:"An espresso-style coffee extracted with more water.",tags:["Long shot","Bold"],ingredients:"Ground coffee and water.",method:"Pull a longer espresso extraction. Taste as you go because extra extraction can increase bitterness.",taste:"More extended and often more bitter than a short espresso."},
+  {name:"Americano",cat:"espresso",desc:"Espresso diluted with hot water for a longer drink.",tags:["Black coffee","Mild"],ingredients:"1–2 espresso shots and hot water.",method:"Add hot water to espresso, or pour espresso over water. Adjust the ratio to taste.",taste:"Clean, smooth and less concentrated than espresso."},
+  {name:"Cappuccino",cat:"milk",desc:"Espresso balanced with steamed milk and a layer of foam.",tags:["Milk","Foam"],ingredients:"Espresso and steamed milk with microfoam.",method:"Prepare espresso, steam milk to a silky texture, and pour with a balanced layer of foam.",taste:"Rich coffee flavor with a creamy texture."},
+  {name:"Caffè Latte",cat:"milk",desc:"Espresso with plenty of steamed milk and a light layer of foam.",tags:["Creamy","Popular"],ingredients:"1 espresso and about 180–240 ml milk.",method:"Pour steamed milk slowly into espresso. Adjust the milk amount to your preferred strength.",taste:"Mild, smooth and milky."},
+  {name:"Flat White",cat:"milk",desc:"A small milk coffee with espresso and fine microfoam.",tags:["Silky","Coffee-forward"],ingredients:"Espresso and steamed milk.",method:"Prepare a double espresso or a strong coffee base and add silky microfoam with little thick froth.",taste:"Creamy with a pronounced coffee character."},
+  {name:"Macchiato",cat:"milk",desc:"Espresso marked with a small amount of milk or foam.",tags:["Small","Bold"],ingredients:"Espresso and a spoonful of milk foam.",method:"Prepare espresso and add a small dollop of milk foam.",taste:"Strong espresso with a soft creamy finish."},
+  {name:"Mocha",cat:"milk",desc:"A chocolate-flavored coffee finished with milk.",tags:["Chocolate","Sweet"],ingredients:"Espresso, chocolate or cocoa, and milk.",method:"Stir chocolate into espresso, add steamed milk, and top with cocoa if desired.",taste:"Chocolatey, creamy and coffee-rich."},
+  {name:"Cortado",cat:"milk",desc:"Espresso softened by a similar amount of warm milk.",tags:["Balanced","Small"],ingredients:"Espresso and warm steamed milk.",method:"Combine espresso with roughly an equal volume of warm milk. Ratios vary by café.",taste:"Balanced, smooth and still coffee-forward."},
+  {name:"Affogato",cat:"espresso",desc:"A scoop of ice cream topped with hot espresso.",tags:["Dessert","Italian"],ingredients:"Vanilla gelato or ice cream and espresso.",method:"Place ice cream in a small glass or bowl and pour freshly brewed espresso over it.",taste:"Hot, cold, sweet and pleasantly bitter."},
+  {name:"Cold Brew",cat:"cold",desc:"Coffee steeped in cool water for several hours.",tags:["Cold","Slow brew"],ingredients:"Coarsely ground coffee and cold water.",method:"Combine coffee and water, steep in the refrigerator for about 12–18 hours, then filter. Dilute if needed.",taste:"Smooth, mellow and refreshing."},
+  {name:"Iced Americano",cat:"cold",desc:"Espresso, cold water and ice.",tags:["Iced","Refreshing"],ingredients:"Espresso, cold water and ice.",method:"Fill a glass with ice, add water, and pour espresso over it.",taste:"Crisp, refreshing and coffee-forward."},
+  {name:"Frappé",cat:"cold",desc:"A chilled, frothy coffee drink popular in Greece.",tags:["Foamy","Iced"],ingredients:"Instant coffee, cold water, ice and optional milk or sugar.",method:"Shake or blend instant coffee with a little water until foamy. Add ice and more water or milk.",taste:"Frothy, refreshing and adjustable in sweetness."},
+  {name:"Pour-Over",cat:"brewed",desc:"Filter coffee prepared by pouring hot water over ground beans.",tags:["Filter","Aromatic"],ingredients:"Ground coffee, hot water and a paper or reusable filter.",method:"Rinse the filter, add coffee, wet the grounds evenly, then pour water in slow circles until brewed.",taste:"Clean and expressive, highlighting the character of the beans."},
+  {name:"French Press",cat:"brewed",desc:"Immersion coffee brewed in a plunger pot.",tags:["Full-bodied","Rich"],ingredients:"Coarsely ground coffee and hot water.",method:"Add coffee and water, steep for around 4 minutes, then slowly press the plunger.",taste:"Full-bodied with a rich mouthfeel."},
+  {name:"Turkish Coffee",cat:"brewed",desc:"Very finely ground coffee slowly prepared in a small pot.",tags:["Traditional","Unfiltered"],ingredients:"Finely ground coffee, water and optional sugar.",method:"Combine coffee and cold water in a cezve. Heat gently until the foam rises; avoid a vigorous boil. Serve with grounds settled.",taste:"Intense, rich and aromatic."},
+  {name:"Irish Coffee",cat:"espresso",desc:"A classic warm coffee cocktail with whiskey and cream.",tags:["Classic","Cocktail"],ingredients:"Hot coffee, Irish whiskey, sugar and lightly whipped cream.",method:"Stir sugar into coffee and whiskey, then gently float cream on top. Alcoholic drink; for adults of legal drinking age.",taste:"Rich coffee with whiskey warmth and creamy texture."}
+];
+
+const tea = [
+  {name:"English Breakfast",cat:"black",desc:"A robust black tea blend commonly enjoyed in the morning.",tags:["Black tea","Classic"],ingredients:"Loose-leaf tea or one tea bag and water.",method:"Use about 2 g loose tea per 200 ml water. Steep at 95–100°C for 3–5 minutes.",taste:"Full-bodied, brisk and malty; often served with milk."},
+  {name:"Earl Grey",cat:"black",desc:"Black tea flavored with fragrant bergamot citrus.",tags:["Black tea","Citrus"],ingredients:"Earl Grey tea and hot water.",method:"Steep at 95–100°C for 3–5 minutes, following the blend's instructions.",taste:"Bold black tea with a bright, floral-citrus aroma."},
+  {name:"Assam",cat:"black",desc:"A strong Indian black tea known for its malty character.",tags:["Black tea","Malty"],ingredients:"Assam tea leaves and hot water.",method:"Steep in near-boiling water for about 3–5 minutes.",taste:"Rich, brisk and malty."},
+  {name:"Darjeeling",cat:"black",desc:"An aromatic Indian tea often prized for its delicate character.",tags:["Black tea","Floral"],ingredients:"Darjeeling leaves and hot water.",method:"Follow the tea's instructions; many teas work well around 85–95°C for 2–4 minutes.",taste:"Light, floral, fruity and sometimes muscatel."},
+  {name:"Green Tea",cat:"green",desc:"A broad family of teas with fresh and vegetal flavors.",tags:["Green tea","Fresh"],ingredients:"Green tea leaves and hot water.",method:"Try 70–85°C water for 1–3 minutes. Avoid over-steeping if the tea becomes bitter.",taste:"Fresh, grassy, vegetal or nutty depending on origin."},
+  {name:"Sencha",cat:"green",desc:"A popular Japanese green tea with bright vegetal notes.",tags:["Japanese","Green"],ingredients:"Sencha leaves and water.",method:"Start around 70–80°C for 1–2 minutes, then adjust to taste.",taste:"Fresh, grassy, gently sweet and sometimes savory."},
+  {name:"Jasmine Tea",cat:"green",desc:"Tea scented with fragrant jasmine blossoms.",tags:["Floral","Fragrant"],ingredients:"Jasmine-scented tea and hot water.",method:"Use 75–85°C water for about 1–3 minutes, depending on the tea base.",taste:"Floral, delicate and refreshing."},
+  {name:"Matcha",cat:"green",desc:"Finely powdered Japanese green tea whisked into water.",tags:["Powdered","Japanese"],ingredients:"1–2 g matcha and 60–80 ml warm water.",method:"Sift the powder into a bowl, add warm water and whisk briskly until smooth and lightly foamy.",taste:"Vegetal, creamy, umami-rich and slightly bitter."},
+  {name:"White Tea",cat:"special",desc:"A lightly processed tea with a delicate flavor.",tags:["Delicate","Light"],ingredients:"White tea leaves and water.",method:"Start around 75–85°C for 2–5 minutes. Adjust for the particular leaf and desired strength.",taste:"Gentle, floral, sweet or subtly fruity."},
+  {name:"Oolong Tea",cat:"special",desc:"A versatile tea between green and black tea in oxidation.",tags:["Traditional","Complex"],ingredients:"Oolong leaves and water.",method:"Try 85–95°C water for 2–4 minutes. Many oolongs can be steeped multiple times.",taste:"Floral and creamy to roasted and nutty."},
+  {name:"Pu-erh",cat:"special",desc:"A fermented or aged tea from Yunnan, China.",tags:["Aged tea","Earthy"],ingredients:"Pu-erh tea and hot water.",method:"Rinse the leaves briefly if desired, then steep with near-boiling water. Try short infusions and adjust.",taste:"Earthy, deep, woody and sometimes smooth or sweet."},
+  {name:"Chai",cat:"special",desc:"A spiced tea traditionally prepared with black tea and aromatic spices.",tags:["Spiced","Warming"],ingredients:"Black tea, water, spices such as cardamom, cinnamon and ginger; milk optional.",method:"Simmer spices in water, add tea and steep or simmer gently, then add milk and sweetener if desired.",taste:"Rich, warming, aromatic and spicy."},
+  {name:"Chamomile",cat:"herbal",desc:"A caffeine-free herbal infusion made from chamomile flowers.",tags:["Herbal","Floral"],ingredients:"Dried chamomile flowers and hot water.",method:"Steep in near-boiling water for about 5–7 minutes.",taste:"Soft, floral and gently honey-like."},
+  {name:"Peppermint Tea",cat:"herbal",desc:"A refreshing herbal infusion made from mint leaves.",tags:["Herbal","Mint"],ingredients:"Fresh or dried peppermint and hot water.",method:"Steep for 5–7 minutes, then strain. Add lemon if desired.",taste:"Fresh, cool and minty."},
+  {name:"Hibiscus Tea",cat:"herbal",desc:"A vivid red infusion with a naturally tart flavor.",tags:["Herbal","Tangy"],ingredients:"Dried hibiscus calyces and hot water.",method:"Steep in hot water for 5–10 minutes. Enjoy warm or chill and serve over ice.",taste:"Tart, fruity and cranberry-like."},
+  {name:"Rooibos",cat:"herbal",desc:"A naturally caffeine-free herbal drink from South Africa.",tags:["Herbal","Caffeine-free"],ingredients:"Rooibos leaves and hot water.",method:"Steep in boiling water for about 5–7 minutes or longer for a stronger cup.",taste:"Smooth, woody, mellow and slightly sweet."},
+  {name:"Ginger Tea",cat:"herbal",desc:"A warming infusion made with fresh or dried ginger.",tags:["Herbal","Spicy"],ingredients:"Sliced fresh ginger and water; lemon optional.",method:"Simmer ginger in water for about 5–10 minutes, then strain.",taste:"Warm, spicy and lively."},
+  {name:"Lemon Balm",cat:"herbal",desc:"A gentle herbal infusion with a soft lemon-like aroma.",tags:["Herbal","Citrus"],ingredients:"Lemon balm leaves and hot water.",method:"Steep for around 5–7 minutes, then strain.",taste:"Mild, fresh and lightly citrusy."}
+];
+
+function renderDrinks(items, gridId, searchId, filtersId, type) {
+  const grid = document.getElementById(gridId);
+  const search = document.getElementById(searchId);
+  const filters = document.getElementById(filtersId);
+  let selected = "all";
+
+  function draw() {
+    const term = search.value.trim().toLowerCase();
+    const filtered = items.filter(item => {
+      const matchesCategory = selected === "all" || item.cat === selected;
+      const text = [item.name,item.desc,item.taste,item.ingredients,...item.tags].join(" ").toLowerCase();
+      return matchesCategory && text.includes(term);
+    });
+
+    grid.innerHTML = "";
+    if (!filtered.length) {
+      grid.innerHTML = '<p class="no-results">No drinks found. Try another search.</p>';
+      return;
+    }
+
+    filtered.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "drink-card";
+      const number = String(items.indexOf(item) + 1).padStart(2,"0");
+      const chips = item.tags.map(tag => `<span class="chip">${tag}</span>`).join("");
+      card.innerHTML = `
+        <div class="drink-number">${type.toUpperCase()} / ${number}</div>
+        <h3>${item.name}</h3>
+        <p>${item.desc}</p>
+        <div class="chips">${chips}</div>
+        <button class="button light details-toggle" aria-expanded="false">VIEW DETAILS +</button>
+        <div class="details">
+          <h4>Ingredients</h4>
+          <p>${item.ingredients}</p>
+          <h4>How to Prepare</h4>
+          <p>${item.method}</p>
+          <h4>Flavor Profile</h4>
+          <p>${item.taste}</p>
+        </div>`;
+      const btn = card.querySelector(".details-toggle");
+      const details = card.querySelector(".details");
+      btn.addEventListener("click", () => {
+        const isOpen = details.classList.toggle("open");
+        btn.textContent = isOpen ? "CLOSE DETAILS −" : "VIEW DETAILS +";
+        btn.setAttribute("aria-expanded", String(isOpen));
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  filters.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-filter]");
+    if (!button) return;
+    selected = button.dataset.filter;
+    filters.querySelectorAll("button").forEach(b => b.classList.toggle("active", b === button));
+    draw();
+  });
+  search.addEventListener("input", draw);
+  draw();
+}
+
+renderDrinks(coffee, "coffeeGrid", "coffeeSearch", "coffeeFilters", "Coffee");
+renderDrinks(tea, "teaGrid", "teaSearch", "teaFilters", "Tea");
+</script>
 </body>
 </html>
 
